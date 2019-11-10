@@ -7,6 +7,7 @@ Component.registerHooks([
 ]);
 import Router from 'vue-router';
 const Home = () => import('../core/home/home.vue');
+const Login = () => import('../core/login/login.vue');
 const Error = () => import('../core/error/error.vue');
 const Register = () => import('../account/register/register.vue');
 const Activate = () => import('../account/activate/activate.vue');
@@ -30,13 +31,19 @@ const JhiMetricsComponent = () => import('../admin/metrics/metrics.vue');
 Vue.use(Router);
 
 // prettier-ignore
-export default new Router({
+const router = new Router({
   mode: 'history',
   routes: [
     {
-      path: '/',
+      path: '/home',
       name: 'Home',
-      component: Home
+      component: Home,
+      meta: { authorities: ['ROLE_USER', 'ROLE_ADMIN'] }
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
     },
     {
       path: '/forbidden',
@@ -147,7 +154,11 @@ export default new Router({
       name: 'JhiConfigurationComponent',
       component: JhiConfigurationComponent,
       meta: { authorities: ['ROLE_ADMIN'] }
-    }
+    },
+    {path: '*', redirect: '/login'}
     // jhipster-needle-add-entity-to-router - JHipster will add entities to the router here
   ]
 });
+
+// router.replace('/login');
+export default router;

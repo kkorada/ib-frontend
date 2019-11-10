@@ -1,25 +1,40 @@
 <template>
-    <b-navbar toggleable="md" type="dark" class="bg-primary">
+    <div class="ib-navbar">
+        <span class="logo-img"></span>
+        <b-navbar toggleable="md" type="light" class="bg-ib" v-if="showNavbar">
         <div class="jh-logo-container float-left">
             <b-navbar-toggle right class="jh-navbar-toggler d-lg-none float-right" href="javascript:void(0);"  data-toggle="collapse" target="header-tabs" aria-expanded="false" aria-label="Toggle navigation">
                 <font-awesome-icon icon="bars" />
             </b-navbar-toggle>
             <b-navbar-brand class="logo float-left" b-link to="/">
-                <span class="logo-img"></span>
-                <span class="navbar-title">ib</span> <span class="navbar-version">{{version}}</span>
+                <img class="caret-down" src="../../../content/images/caret-down.svg" />
             </b-navbar-brand>
         </div>
         <b-collapse is-nav id="header-tabs">
-            <b-navbar-nav class="ml-auto">
-                <b-nav-item to="/" exact>
+            <b-navbar-nav class="ml-150">
+                <b-nav-item to="/home"  active-class="active" exact>
                     <span>
-                        <font-awesome-icon icon="home" />
-                        <span>Home</span>
+                        <span>Accounts</span>
+                    </span>
+                </b-nav-item>
+                <b-nav-item to="/"  active-class="active" exact>
+                    <span>
+                        <span>Self service</span>
+                    </span>
+                </b-nav-item>
+                <b-nav-item to="/"  active-class="active" exact>
+                    <span>
+                        <span>Bankmail</span>
+                    </span>
+                </b-nav-item>
+                <b-nav-item to="/"  active-class="active" exact>
+                    <span>
+                        <span>Tasklist</span>
                     </span>
                 </b-nav-item>
                 <b-nav-item-dropdown
                     id="entity-menu"
-                    v-if="authenticated"
+                    v-if="hasAnyAuthority('ROLE_ADMIN')"
                     :class="{'router-link-active': subIsActive('/entity')}"
                     active-class="active" class="pointer">
                     <span slot="button-content" class="navbar-dropdown-menu">
@@ -81,7 +96,7 @@
                     <span slot="button-content" class="navbar-dropdown-menu">
                         <font-awesome-icon icon="user" />
                         <span>
-                            Account
+                            Settings
                         </span>
                     </span>
                     <b-dropdown-item to="/account/settings" tag="b-dropdown-item" v-if="authenticated">
@@ -112,6 +127,7 @@
             </b-navbar-nav>
         </b-collapse>
     </b-navbar>
+    </div>        
 </template>
 
 <script lang="ts" src="./jhi-navbar.component.ts">
@@ -126,7 +142,6 @@
   font-size: 10px;
 }
 
-
 @media screen and (min-width: 768px) {
   .jh-navbar-toggler {
     display: none;
@@ -134,8 +149,8 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1150px) {
-  span span{
-    display:none;
+  span span {
+    display: none;
   }
 }
 
@@ -159,22 +174,43 @@ nav li.router-link-active .navbar-dropdown-menu {
 /* ==========================================================================
     Logo styles
     ========================================================================== */
-.navbar-brand.logo {
-  padding: 5px 15px;
-}
 
-.logo .logo-img {
+.logo-img {
   height: 45px;
-  display: inline-block;
-  vertical-align: middle;
-  width: 70px;
+  display: block;
+  margin: 20px 0 0 100px;
+  width: 130px;
 }
 
 .logo-img {
-  height: 100%;
-  background: url("../../../content/images/logo-jhipster.png") no-repeat center
-    center;
+  background: url('../../../content/images/logo.svg') no-repeat center center;
   background-size: contain;
-  width: 100%;
 }
+
+.bg-primary {
+  background-image: linear-gradient(-296deg,#005e5d,#00857a);
+}
+
+.caret-down {
+    position: relative;
+    top: -22px;
+    left: 95px;
+}
+
+.navbar {
+  padding: 0px;
+}
+
+.navbar-dark .navbar-nav .nav-link, .navbar-dark .navbar-nav .dropdown-toggle  {
+    color: grey;
+}
+
+.bg-ib {
+    background-color: #F1F5F8 !important;
+}
+
+.ml-150 {
+    margin-left: 150px;
+}
+
 </style>

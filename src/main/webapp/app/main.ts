@@ -23,6 +23,7 @@ import AccountService from './account/account.service';
 import '../content/scss/vendor.scss';
 import AlertService from '@/shared/alert/alert.service';
 import ConfigurationService from '@/admin/configuration/configuration.service';
+import BankingService from '@/core/services/core.service';
 
 // jhipster-needle-add-entity-service-to-main-import - JHipster will import entities services here
 
@@ -69,7 +70,7 @@ new Vue({
     activateService: () => new ActivateService(),
     registerService: () => new RegisterService(),
     userService: () => new UserManagementService(),
-
+    bankingService: () => new BankingService(),
     auditsService: () => new AuditsService(),
 
     healthService: () => new HealthService(),

@@ -24,7 +24,7 @@ export default class AccountService {
     });
   }
 
-  public retrieveAccount(): void {
+  public retrieveAccount(cb?: any): void {
     this.store.commit('authenticate');
     axios
       .get('api/account')
@@ -36,15 +36,18 @@ export default class AccountService {
             this.router.replace(sessionStorage.getItem('requested-url'));
             sessionStorage.removeItem('requested-url');
           }
+          if (cb) {
+            cb();
+          }
         } else {
           this.store.commit('logout');
-          this.router.push('/');
+          this.router.push('/login');
           sessionStorage.removeItem('requested-url');
         }
       })
       .catch(() => {
         this.store.commit('logout');
-        this.router.push('/');
+        this.router.push('/login');
       });
   }
 

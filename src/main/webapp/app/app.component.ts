@@ -14,4 +14,12 @@ import LoginForm from '@/account/login-form/login-form.vue';
     'jhi-footer': JhiFooter
   }
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  getHeaderName() {
+    return this.$route.path;
+  }
+
+  get isLoginPage() {
+    return this.$route.path === '/login';
+  }
+}

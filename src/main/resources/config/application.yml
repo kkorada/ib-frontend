@@ -153,3 +153,8 @@ jhipster:
 # ===================================================================
 
 # application:
+app:
+  endpoints:
+    customerservice: customerservice
+    accountsservice: accountsservice
+    transactionsservice: transactionsservice
