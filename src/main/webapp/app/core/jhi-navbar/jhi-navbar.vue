@@ -1,7 +1,7 @@
 <template>
     <div class="ib-navbar">
         <span class="logo-img"></span>
-        <div class="login-user d-none d-sm-block">
+        <div class="login-user d-none d-sm-block" v-if="authenticated">
             <p class="name">Welcome, <b>Jhon PD</b></p>
             <img class="loggedin-user-img" src="../../../content/images/user-jhon.jpeg" />            
         </div>
