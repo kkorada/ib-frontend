@@ -26,7 +26,7 @@
                                         <div class="col-md-2">
                                             <span> {{account.balance | toCurrency}}</span>
                                         </div>
-                                        <div class="col-md-1">
+                                        <div class="col-md-1 d-none d-sm-block">
                                             <font-awesome-icon icon="chevron-right"></font-awesome-icon>
                                         </div>
                                     </div>                                    
@@ -212,6 +212,8 @@
   padding: 10px 20px;
   border-bottom: 1px solid #efefef;
   cursor: pointer;
+  border-left: 1px solid #efefef;
+  border-right: 1px solid #efefef;
 }
 .account-record:first-child {
   border-top: 1px solid #efefef;
