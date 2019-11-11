@@ -54,22 +54,59 @@
                     <div class="col-md-3">
                         <p>Questions or in need of help, You can reach us 24/7.</p>
                         <a href>Contact</a>
+                       <div class="ads-column d-none d-sm-block">
+                           <h4 class="header">For Daily Banking Matters</h4>
+                           <div class="block one"> 
+                               <img width="40px" src="../../../content/images/u141.svg" />
+                               <h4>Call Now 0900 - 00 24</h4>
+                            </div>
+                            <div class="block two">
+                                <div class="part1">
+                                    <h4> Preffered Banking</h4>
+                                    <button class="btn btn-ib col-md-12">Make an appointment (in Dutch)</button>
+                                </div>
+                                <div class="part2">
+                                    <ul class="ad-menu">
+                                        <li>your personal adviser</li>
+                                        <li>interactive clinics</li>
+                                        <li>access to Aspire Lounges at Schiphol Airport</li>
+                                        <li>tips and information on investments and pensions</li>
+                                    </ul>
+                                </div>
+                            </div>
+                       </div>
                     </div>                    
                 </div>
             </div>
        </div>
        <div class="transactions-container" v-if="currentView === 'transactions'">
+           <div class="page-header">
+               <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h3>My Account Summary</h3>
+                            <small>As of {{new Date().toLocaleDateString('default', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}}</small>
+                            <div style="margin-top: 15px">
+                                <a class="bread-crumbs" href v-on:click.prevent="openAccountsList()">Accounts</a> > <a class="bread-crumbs" href>Summary</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-right d-none d-sm-block">
+                            <input typ="text" class="form-control search-box" name="search" placeholder="Name, Amount, Account number" />
+                            <button class="btn btn-ib">Search</button>
+                        </div>
+                    </div>
+                </div>
+               
+           </div>
            <div class="container-fluid">
                <div class="row">
-                   <div class="col-md-12" style="margin-bottom: 15px">
-                       <a class="bread-crumbs" href v-on:click.prevent="openAccountsList()">Accounts</a> > <a class="bread-crumbs" href>Summary</a>
-                   </div>
+                   
                </div>
                <div class="row">
                    <div class="col-md-3 vr">
                        <div class="accounts-detail-column">
                            <div class="accounts-list-section">
-                               <h4>Account details for</h4>
+                               <h4 class="header">Account details for</h4>
                                <select class="d-xs-block d-sm-none form-control" name="account" v-on:change="showTransactions($event.target.value)">
                                    <option v-bind:key="account.id" v-for="account in accounts" v-bind:value="account.id"> {{account.name}} </option>
                                </select>
@@ -123,7 +160,7 @@
                        <div class="transactions-detail-column">
                            <div class="row">
                                <div class="col-md-6">
-                                   <h4 class="header">Transactions</h4>
+                                   <h4 class="header">Transactions <small>between 01/11/2019 to 12/11/2019</small> <span><font-awesome-icon icon="calendar-alt"></font-awesome-icon></span></h4>
                                 </div>
                                 <div class="col-md-6 text-right">
                                     <h4 class="header">
@@ -141,7 +178,7 @@
                                             <div class="card">
                                                 <table>
                                                     <tr class="transaction" v-bind:key="trnx.id" v-for="trnx in trnxs">
-                                                        <td>&euro;</td> 
+                                                        <td><img width="20px" src="../../../content/images/pos.png" /></td> 
                                                         <td>{{trnx.description}}</td> 
                                                         <td style="text-align: right">
                                                             <b>{{ getAmount(trnx)  | toCurrency }}</b>
@@ -166,16 +203,18 @@
                                <h4>Call Now 0900 - 00 24</h4>
                             </div>
                             <div class="block two">
-                                <h4> Preffered Banking</h4>
-                                <button class="btn btn-ib col-md-12">Make an appointment (in Dutch)</button>
-                            </div>
-                            <div class="block">
-                                <ul class="ad-menu">
-                                    <li>your personal adviser</li>
-                                    <li>interactive clinics</li>
-                                    <li>access to Aspire Lounges at Schiphol Airport</li>
-                                    <li>tips and information on investments and pensions</li>
-                                </ul>
+                                <div class="part1">
+                                    <h4> Preffered Banking</h4>
+                                    <button class="btn btn-ib col-md-12">Make an appointment (in Dutch)</button>
+                                </div>
+                                <div class="part2">
+                                    <ul class="ad-menu">
+                                        <li>your personal adviser</li>
+                                        <li>interactive clinics</li>
+                                        <li>access to Aspire Lounges at Schiphol Airport</li>
+                                        <li>tips and information on investments and pensions</li>
+                                    </ul>
+                                </div>
                             </div>
                        </div>
                    </div>
@@ -235,7 +274,30 @@
 }
 
 .transactions-container {
-  margin-top: 10px;
+  /* margin-top: 10px;   */
+}
+.transactions-container .header {
+  font-size: 18px;
+}
+.transactions-container .header > small{
+  font-size: 10px;
+}
+.transactions-container .page-header {
+    min-height: 100px;
+    height: inherit;
+    width: 100%;
+    background-image: linear-gradient(-296deg, #005e5d, #00857a);
+    color: #fff;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+.transactions-container .page-header h3{
+    display: inline;
+    font-size: 26px;
+}
+.transactions-container .page-header .search-box {
+    width: 300px;
+    display: inline-block;
 }
 .transactions-container .col-md-3.vr,
 .transactions-container .col-md-6.vr {
@@ -360,14 +422,23 @@
 }
 
 .ads-column .block.two {
+    padding: 0px;
+}
+.ads-column .block.two .part1 {
   color: #fff;
   text-align: center;
   background: #00605e;
+  padding: 20px;
 }
 
-.ads-column .block.two h4 {
+.ads-column .block.two .part1 h4 {
   font-weight: 600;
   font-size: 24px;
+}
+
+.ads-column .block.two .part2 {
+  padding: 20px;
+  border: 1px solid #efefef;
 }
 
 .ads-column ul.ad-menu {
@@ -382,7 +453,7 @@
 }
 
 .bread-crumbs {
-  color: #00605e;
+  color: #fff;
 }
 
 .mt-20 {

@@ -1,6 +1,10 @@
 <template>
     <div class="ib-navbar">
         <span class="logo-img"></span>
+        <div class="login-user d-none d-sm-block">
+            <p class="name">Welcome, <b>Jhon PD</b></p>
+            <img class="loggedin-user-img" src="../../../content/images/user-jhon.jpeg" />            
+        </div>
         <b-navbar toggleable="md" type="light" class="bg-ib" v-if="showNavbar">
         <div class="jh-logo-container float-left">
             <b-navbar-toggle right class="jh-navbar-toggler d-lg-none float-right" href="javascript:void(0);"  data-toggle="collapse" target="header-tabs" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,7 +15,7 @@
             </b-navbar-brand>
         </div>
         <b-collapse is-nav id="header-tabs">
-            <b-navbar-nav class="ml-150" v-if="authenticated">
+            <b-navbar-nav class="" v-if="authenticated">
                 <b-nav-item to="/home"  active-class="active" exact>
                     <span>
                         <font-awesome-icon icon="money-check-alt" />
@@ -181,7 +185,7 @@ nav li.router-link-active .navbar-dropdown-menu {
 
 .logo-img {
   height: 45px;
-  display: block;
+  display: inline-block;
   margin: 20px 0 0 100px;
   width: 130px;
 }
@@ -216,5 +220,15 @@ nav li.router-link-active .navbar-dropdown-menu {
 .ml-150 {
     margin-left: 150px;
 }
-
+.login-user {
+    float: right;
+    margin-top: 22px;
+}
+.login-user img.loggedin-user-img {
+    width: 40px;
+    border-radius: 50%;
+}
+.login-user p.name {
+    display: inline;
+}
 </style>

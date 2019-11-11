@@ -39,6 +39,7 @@ import { faCog } from '@fortawesome/free-solid-svg-icons/faCog';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope';
 import { faMoneyCheckAlt } from '@fortawesome/free-solid-svg-icons/faMoneyCheckAlt';
 import { faPeopleCarry } from '@fortawesome/free-solid-svg-icons/faPeopleCarry';
+import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons/faCalendarAlt';
 import VueCookie from 'vue-cookie';
 import Vuelidate from 'vuelidate';
 import Vue2Filters from 'vue2-filters';
@@ -91,7 +92,8 @@ export function initFortAwesome(vue) {
     faCog,
     faEnvelope,
     faMoneyCheckAlt,
-    faPeopleCarry
+    faPeopleCarry,
+    faCalendarAlt
   );
 }
 

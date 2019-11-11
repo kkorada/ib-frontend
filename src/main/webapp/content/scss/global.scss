@@ -24,7 +24,7 @@ body {
 }
 
 a {
-  color: #533f03;
+  color: #00605e;
   font-weight: bold;
 }
 
@@ -266,6 +266,11 @@ ui bootstrap tweaks
 .navbar-light .navbar-nav .nav-link.active {
   background-color: #00605e;
   color: #fff !important;
+  padding: 10px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  padding: 10px;
 }
 
 .btn-ib {
