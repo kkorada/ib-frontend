@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <p>Questions or in need of help> You can reach us 24/7.</p>
+                        <p>Questions or in need of help, You can reach us 24/7.</p>
                         <a href>Contact</a>
                     </div>                    
                 </div>

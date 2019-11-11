@@ -265,12 +265,12 @@ ui bootstrap tweaks
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .nav-link.active {
   background-color: #00605e;
-  color: #fff;
+  color: #fff !important;
 }
 
 .btn-ib {
-  color: #111;
-  background-color: #ffd200;
+  color: #111 !important;
+  background-color: #ffd200 !important;
 }
 
 .btn-light {
