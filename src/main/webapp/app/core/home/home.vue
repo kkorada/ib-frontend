@@ -14,7 +14,7 @@
                                     <div class="row align-items-center">
                                         <div class="col-md-1">
                                             <img v-show="account.type === 'Personal Account'" width="40px" src="../../../content/images/credit-card.png" />
-                                            <img v-show="account.type === 'Direct Kwartal Sparen'" width="40px" src="../../../content/images/piggy-bank_grenn.png" />
+                                            <img v-show="account.type === 'Direct Quarterly Savings'" width="40px" src="../../../content/images/piggy-bank_grenn.png" />
                                         </div>
                                         <div class="col-md-4">
                                             <div>{{account.name}}</div>
@@ -73,7 +73,7 @@
                                             <small>{{account.number}}</small>
                                         </div>
                                         <div class="col-md-5 text-right">
-                                            <h4>{{account.balance}}</h4>
+                                            <h4>{{account.balance | toCurrency}}</h4>
                                             <small>{{account.type}}</small>
                                         </div>
                                         <div class="col-md-2">
@@ -129,7 +129,7 @@
                                                         <td>&euro;</td> 
                                                         <td>{{trnx.description}}</td> 
                                                         <td style="text-align: right">
-                                                            <b>{{ getAmount(trnx) }}</b>
+                                                            <b>{{ getAmount(trnx)  | toCurrency }}</b>
                                                         </td> 
                                                     </tr>
                                                 </table>                                                    
@@ -271,10 +271,6 @@
     padding: 5px;
 }
 
-
-.accounts-detail-column {
-}
-
 .accounts-detail-column > .accounts-list-section {
     margin-bottom: 20px;
 }
@@ -319,10 +315,6 @@
 
 .transactions-detail-column .header {
     font-weight: 600;
-}
-
-.ads-cloumn {
-
 }
 
 .ads-column .header {

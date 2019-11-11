@@ -10,7 +10,7 @@ import AccountService from '@/account/account.service';
       if (typeof value !== 'number') {
         return value;
       }
-      var formatter = new Intl.NumberFormat('de-DE', {
+      const formatter = new Intl.NumberFormat('de-DE', {
         style: 'currency',
         currency: 'EUR',
         minimumFractionDigits: 0
@@ -29,7 +29,7 @@ export default class Home extends Vue {
   @Inject('accountService')
   private accountService: () => AccountService;
 
-  public currentView: string = 'accounts';
+  public currentView = 'accounts';
 
   public msSelected = null;
   public showOptions = false;
@@ -79,9 +79,9 @@ export default class Home extends Vue {
         this.customer = res.data;
         this.bankingService()
           .getAccountsByCustomerId(this.customer.id)
-          .then(res => {
-            console.log(res.data);
-            this.accounts = res.data;
+          .then(res1 => {
+            console.log(res1.data);
+            this.accounts = res1.data;
           });
       });
   }
@@ -146,15 +146,15 @@ export default class Home extends Vue {
   }
 
   private formatTransactions(transactions) {
-    var formattedTrxns = {};
+    const formattedTrxns = {};
 
     transactions.reverse().forEach(trnx => {
       if (formattedTrxns[trnx.dateOfTransaction] === undefined) {
         formattedTrxns[trnx.dateOfTransaction] = [];
       }
       formattedTrxns[trnx.dateOfTransaction].push(trnx);
+      console.log(formattedTrxns);
+      return formattedTrxns;
     });
-    console.log(formattedTrxns);
-    return formattedTrxns;
   }
 }

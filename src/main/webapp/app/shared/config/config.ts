@@ -36,7 +36,6 @@ import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
 import { faCog } from '@fortawesome/free-solid-svg-icons/faCog';
-
 import VueCookie from 'vue-cookie';
 import Vuelidate from 'vuelidate';
 import Vue2Filters from 'vue2-filters';

@@ -16,7 +16,7 @@ export default class LoginForm extends Vue {
   public login = null;
   public password = null;
   public rememberMe: boolean = null;
-  public headerName: string = 'Internet Banking';
+  public headerName = 'Internet Banking';
 
   public doLogin(): void {
     const data =

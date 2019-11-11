@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import axios, { AxiosPromise } from 'axios';
-
 export default class BankingService {
   public getCustomerByLogin(login: string): AxiosPromise<any> {
     return axios.get('/api/customers/login/' + login);
@@ -13,10 +12,4 @@ export default class BankingService {
   public getTrnxsByAccountId(accountId: number): AxiosPromise<any> {
     return axios.get('/api/transactions/account/' + accountId);
   }
-
-  // public logout1(): any {
-  //   axios.post('api/logout').then(() => {
-  //     router.push('/login');
-  //   });
-  // }
 }
