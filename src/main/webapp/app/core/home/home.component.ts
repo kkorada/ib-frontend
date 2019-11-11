@@ -103,6 +103,7 @@ export default class Home extends Vue {
   }
 
   public openTransactions(accountNumber) {
+    this.transactions = {};
     this.currentSelectedAccount = accountNumber;
     console.log(accountNumber);
     this.currentView = 'transactions';
