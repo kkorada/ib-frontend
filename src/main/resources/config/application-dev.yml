@@ -121,3 +121,8 @@ jhipster:
 # ===================================================================
 
 # application:
+app:
+  endpoints:
+    customerservice: localhost:8081
+    accountsservice: localhost:8082
+    transactionsservice: localhost:8083

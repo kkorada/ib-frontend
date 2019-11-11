@@ -153,8 +153,7 @@ export default class Home extends Vue {
         formattedTrxns[trnx.dateOfTransaction] = [];
       }
       formattedTrxns[trnx.dateOfTransaction].push(trnx);
-      console.log(formattedTrxns);
-      return formattedTrxns;
     });
+    return formattedTrxns;
   }
 }

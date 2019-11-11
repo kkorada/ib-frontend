@@ -11,7 +11,7 @@
             </b-navbar-brand>
         </div>
         <b-collapse is-nav id="header-tabs">
-            <b-navbar-nav class="ml-150">
+            <b-navbar-nav class="ml-150" v-if="authenticated">
                 <b-nav-item to="/home"  active-class="active" exact>
                     <span>
                         <span>Accounts</span>

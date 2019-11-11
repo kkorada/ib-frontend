@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -26,9 +27,12 @@ public class BankingController {
 	
 	private final Logger log = LoggerFactory.getLogger(AccountResource.class);
 	
-	private String customerServiceHost = "localhost:8082";
-	private String accountServiceHost = "localhost:8081";
-	private String transactionServiceHost = "localhost:8083";
+	@Value("${app.endpoints.customerservice}")
+	private String customerServiceHost = "customer-service:8081";
+	@Value("${app.endpoints.accountsservice}")
+	private String accountServiceHost = "accounts-service:8082";
+	@Value("${app.endpoints.transactionsservice}")
+	private String transactionServiceHost = "trnx-service:8083";
 
 	@GetMapping("/customers/login/{login:" + Constants.LOGIN_REGEX + "}")
 	public ResponseEntity<CustomerDTO> getCustomerByLogin(@PathVariable String login) throws URISyntaxException {
