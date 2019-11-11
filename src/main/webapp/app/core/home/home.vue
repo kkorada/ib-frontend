@@ -152,7 +152,7 @@
                                <h4>Call Now 0900 - 00 24</h4>
                             </div>
                             <div class="block two">
-                                <h3> Preffered Banking</h3>
+                                <h4> Preffered Banking</h4>
                                 <button class="btn btn-ib col-md-12">Make an appointment (in Dutch)</button>
                             </div>
                             <div class="block">
