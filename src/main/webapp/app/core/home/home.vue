@@ -70,7 +70,10 @@
                        <div class="accounts-detail-column">
                            <div class="accounts-list-section">
                                <h4>Account details for</h4>
-                               <div class="account-card" v-bind:class="{'active': account.id === currentSelectedAccount}" v-on:click="showTransactions(account.id)" v-bind:key="account.id" v-for="account in accounts">
+                               <select class="d-xs-block d-sm-none form-control" name="account" v-on:change="showTransactions($event.target.value)">
+                                   <option v-bind:key="account.id" v-for="account in accounts" v-bind:value="account.id"> {{account.name}} </option>
+                               </select>
+                               <div class="account-card d-none d-sm-block" v-bind:class="{'active': account.id === currentSelectedAccount}" v-on:click="showTransactions(account.id)" v-bind:key="account.id" v-for="account in accounts">
                                     <div class="row align-items-center">
                                         <div class="col-md-4">
                                             <h4>{{account.name}}</h4>
@@ -88,27 +91,35 @@
                            </div>
                            <div class="transactions-filters-section">
                                 <h4>Transactions Filter</h4>
-                                <div class="form-group">
+                                <select class="d-xs-block d-sm-none form-control" name="filter">
+                                   <option value="all"> All </option>
+                                   <option value="all"> Pending </option>
+                                   <option value="all"> Rejected </option>
+                                   <option value="all"> Scheduled and standing </option>
+                                   <option value="all"> Direct debits </option>
+                               </select>
+                                <div class="form-group d-none d-sm-block">
                                     <input type="checkbox" id="txfilter1" name="txfilter" />
                                     <label for="txfilter1">Pending</label>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group d-none d-sm-block">
                                     <input type="checkbox" id="txfilter2" name="txfilter" />
                                     <label for="txfilter2">Rejected</label>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group d-none d-sm-block">
                                     <input type="checkbox" id="txfilter3" name="txfilter" />
                                     <label for="txfilter3">Scheduled and standing</label>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group d-none d-sm-block">
                                     <input type="checkbox" id="txfilter4" name="txfilter" />
                                     <label for="txfilter4">Direct debits</label>
                                 </div>
                            </div>
-                           <button class="btn btn-ib col-md-12">New Transfer</button>
+                           <button class="btn btn-ib col-md-12 d-none d-sm-block">New Transfer</button>
                        </div>            
                    </div>
                    <div class="col-md-6 vr">
+                       <div class="d-xs-block d-sm-none mt-20"></div>
                        <div class="transactions-detail-column">
                            <div class="row">
                                <div class="col-md-6">
@@ -144,6 +155,9 @@
                             </div>
                        </div>
                    </div>
+                   <div class="col-md-12 d-xs-block d-sm-none text-center">
+                       <button class="btn btn-ib">New Transfer</button>
+                    </div>            
                    <div class="col-md-3">
                        <div class="ads-column">
                            <h4 class="header">For Daily Banking Matters</h4>
@@ -367,5 +381,9 @@
 
 .bread-crumbs {
   color: #00605e;
+}
+
+.mt-20 {
+    margin-top: 20px;
 }
 </style>
