@@ -14,21 +14,25 @@
             <b-navbar-nav class="ml-150" v-if="authenticated">
                 <b-nav-item to="/home"  active-class="active" exact>
                     <span>
+                        <font-awesome-icon icon="money-check-alt" />
                         <span>Accounts</span>
                     </span>
                 </b-nav-item>
                 <b-nav-item to="/"  active-class="active" exact>
                     <span>
+                        <font-awesome-icon icon="people-carry" />
                         <span>Self service</span>
                     </span>
                 </b-nav-item>
                 <b-nav-item to="/"  active-class="active" exact>
                     <span>
+                        <font-awesome-icon icon="envelope" />
                         <span>Bankmail</span>
                     </span>
                 </b-nav-item>
                 <b-nav-item to="/"  active-class="active" exact>
                     <span>
+                        <font-awesome-icon icon="tasks" />
                         <span>Tasklist</span>
                     </span>
                 </b-nav-item>
